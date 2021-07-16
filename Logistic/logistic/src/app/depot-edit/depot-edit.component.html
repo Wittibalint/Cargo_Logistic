@@ -1,0 +1,14 @@
+<a class="btn btn-secondary" [routerLink]="['/admin/depot']">Back</a>
+<br>
+<div *ngIf="depot">
+    <label for="address">Address:</label>
+    <input type="text" [(ngModel)]="depot.address">
+    <br>
+    <label for="locationX">LocationX:</label>
+    <input type="number" style="width: 100px;" [(ngModel)]="depot.locationX">
+    <br>
+    <label for="locationY">LocationY:</label>
+    <input type="number" style="width: 100px;" [(ngModel)]="depot.locationY">
+    <br>
+    <button class="btn btn-secondary" (click)="send()">Send</button>
+</div>

@@ -1,0 +1,33 @@
+<div>
+    <a class="btn btn-secondary" [routerLink]="['/admin']">Back</a>
+</div>
+<div>
+    <a class="btn btn-secondary" [routerLink]="['/admin/vehicle/new']">NewVehicle</a>
+</div>
+<div>
+    <button class="btn btn-secondary" (click)="refresh()">Show</button>
+</div>
+<table class="table" style="width: 60%; margin-left: 20%; margin-top: 5%;" *ngIf="vehicles">
+    <thead>
+        <tr style="background-color: #1d8abd; text-align:center">
+            <th>Id</th>
+            <th>Speed</th>
+            <th>MaxSize</th>
+            <th>MaxWeight</th>
+            <th>DepotId</th>
+            <th>License</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="background-color: #1dbda2; text-align:center" *ngFor="let vehicle of vehicles">
+            <td>{{vehicle.id}}</td>
+            <td>{{vehicle.speed}}</td>
+            <td>{{vehicle.maxSize}}</td>
+            <td>{{vehicle.maxWeight}}</td>
+            <td>{{vehicle.depotId}}</td>
+            <td>{{vehicle.licensePlate}}</td>
+            <td><button class="btn btn-danger" (click)="delete(vehicle.id)">Delete</button></td>   
+            <td><a class="btn btn-warning" [routerLink]="['/admin/vehicle/edit', vehicle.id]">Edit</a></td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,29 @@
+<a class="btn btn-secondary" [routerLink]="['/customer/order/new']">New Order</a>
+<button class="btn btn-secondary" style="margin: 1%;" (click)="refresh()">Existing orders</button>
+<a class="btn btn-secondary" [routerLink]="['/customer/user',user  ]">Account</a>
+<button class="btn btn-secondary" style="margin: 1%;" (click)="logOut()">Log out</button>
+
+<table class="table" style="width: 80%; margin-left: 10%; margin-top: 5%;" *ngIf="orders">
+    <thead>
+        <tr style="background-color: #1d8abd; text-align:center">
+            <th>Id</th>
+            <th>From</th>
+            <th>To</th>
+            <th>RegistryDate</th>
+            <th>ShippingDate</th>
+            <th>Size</th>
+            <th>Weight</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="background-color: #1dbda2; text-align:center" *ngFor="let order of orders">
+            <td>{{order.id}}</td>
+            <td>{{order.transportFrom}} ({{order.transportFromX}},{{order.transportFromY}})</td>
+            <td>{{order.transportTo}} ({{order.transportToX}},{{order.transportToY}})</td>
+            <td>{{order.registryDate}}</td>
+            <td>{{order.shippingDate  |  date:'yyyy-MM-dd'}}</td>
+            <td>{{order.size}}</td>
+            <td>{{order.weight}}</td>
+        </tr>
+    </tbody>
+</table>

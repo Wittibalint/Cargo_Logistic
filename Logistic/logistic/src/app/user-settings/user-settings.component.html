@@ -1,0 +1,17 @@
+<a class="btn btn-secondary" [routerLink]="['/customer']">Back</a>
+<div *ngIf="user" style="justify-content: center; display:grid">
+    <label for="email">Email:</label>
+    <input type="text" [(ngModel)]="user.email">
+    <br>
+    <label for="name">Name:</label>
+    <input type="text" [(ngModel)]="user.name">
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" style="width: 100px;" [(ngModel)]="user.password">
+    <br>
+    <label for="password">Password Again:</label>
+    <input type="password" style="width: 100px;" [(ngModel)]="password2">
+    <br>
+    <button class="btn btn-secondary" (click)="send()">Send</button>
+</div>
+

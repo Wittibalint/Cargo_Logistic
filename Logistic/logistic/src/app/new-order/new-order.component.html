@@ -1,0 +1,51 @@
+<a class="btn btn-secondary" [routerLink]="['/customer']">Back</a>
+<div class="row">
+    <div class="column" style="margin-left: 10%;">
+        ---Delivery information---
+        <div>
+            <label class="form-group" for="size">Size in m^3:</label>
+            <input type="number" style="width: 100px;" [(ngModel)]="size">
+        </div>
+        <div>
+            <label class="form-group" for="weight">Weight in kg:</label>
+            <input type="number" style="width: 100px;" [(ngModel)]="weight">
+        </div>   
+        <div>
+            <label class="form-group" for="From">TransportFrom(Address)</label>
+            <input type="text" [(ngModel)]="transportFrom">
+        </div> 
+        <div>
+            <label class="form-group" for="To">TransportTo(Address)</label>
+            <input type="text" [(ngModel)]="transportTo">
+        </div>   
+        <div>
+            <label class="form-group" for="FromXY">TransportFrom(X;Y)</label>
+            <input type="number" style="width: 100px;" [(ngModel)]="transportFromX">
+            <input type="number" style="width: 100px;" [(ngModel)]="transportFromY">
+        </div>   
+        <div>
+            <label class="form-group" for="ToXY">TransportTo(X;Y)</label>
+            <input type="number" style="width: 100px;" [(ngModel)]="transportToX">
+            <input type="number" style="width: 100px;" [(ngModel)]="transportToY">
+        </div> 
+        <div>
+            <label class="form-group" for="shippingDate">ShippingDate:</label>
+            <input type="date" id="select" name="input" [ngModel] ="shippingDate | date:'yyyy-MM-dd'" min="{{datenow|date:'yyyy-MM-dd'}}"  (ngModelChange)="shippingDate = $event">
+        </div>
+    </div>
+    <div class="column" style="margin-left: 10%;">
+        ---Customer information---
+        <div>
+            <label class="form-group" for="Phone">Phone Number</label>
+            <input type="text" [(ngModel)]="phoneNumber">
+        </div>  
+        <div>
+            <label class="form-group" for="Desc">Description (optional)</label>
+            
+        </div> 
+        <div>
+            <textarea style="width: 200%; height: 200px;" [(ngModel)]="description"></textarea>
+        </div> 
+    </div>
+</div>
+<button class="btn btn-secondary" (click)="send()">Send</button>

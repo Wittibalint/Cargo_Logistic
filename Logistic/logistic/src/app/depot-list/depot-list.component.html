@@ -1,0 +1,29 @@
+<div>
+    <a class="btn btn-secondary" [routerLink]="['/admin']">Back</a>
+</div>
+<div>
+<a class="btn btn-secondary" [routerLink]="['/admin/depot/new']">NewDepot</a>
+</div>
+<div>
+    <button class="btn btn-secondary" (click)="refresh()">Show</button>
+</div>
+<table class="table" style="width: 60%; margin-left: 20%; margin-top: 5%;" *ngIf="depots">
+    <thead>
+        <tr style="background-color: #1d8abd; text-align:center">
+            <th>Id</th>
+            <th>Location</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let depot of depots" style="background-color: #1dbda2; text-align:center">
+            <td>{{depot.id}}</td>
+            <td>{{depot.locationX}},{{depot.locationY}}</td>
+            <td>
+                {{depot.address}}
+            </td>
+            <td><button class="btn btn-danger" (click)="delete(depot.id)">Delete</button></td>         
+            <td><a class="btn btn-warning" [routerLink]="['/admin/depot/edit', depot.id]">Edit</a></td>
+        </tr>
+    </tbody>
+</table>

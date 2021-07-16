@@ -1,0 +1,28 @@
+<a class="btn btn-secondary" [routerLink]="['/admin/vehicle']">Back</a>
+<div *ngIf="vehicle">
+    <div>
+        <label class="form-group" for="speed">Maximum speed:</label>
+        <input type="number" style="width: 50px;" [(ngModel)]="vehicle.speed">
+    </div>
+    <div>
+        <label for="maxSize">Maximum Pack Size in m^3:</label>
+        <input type="number" style="width: 50px;" [(ngModel)]="vehicle.maxSize">
+    <br>
+        <label for="maxWeight"> Maximum Pack Weight in kg:</label>
+        <input type="number" style="width: 100px;" [(ngModel)]="vehicle.maxWeight">
+    </div>
+    <div>
+        <label for="depotId">Depot id:</label>
+        <select [(ngModel)]="selectedDepot.id">
+            <option *ngFor="let depo of depots" value={{depo.id}}>
+                {{depo.id}} {{depo.address}} </option>
+          </select>
+        <br>
+        <label for="license">License plate:</label>
+        <input type="text" [(ngModel)]="vehicle.licensePlate">
+    </div>
+    
+    <button class="btn btn-secondary" (click)="send()">Send</button>
+</div>
+
+
